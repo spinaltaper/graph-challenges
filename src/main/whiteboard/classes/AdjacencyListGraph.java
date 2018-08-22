@@ -1,4 +1,6 @@
 package whiteboard.classes;
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+
 import java.util.*;
 
 public class AdjacencyListGraph<E> implements Graph<E> {
@@ -28,7 +30,11 @@ public class AdjacencyListGraph<E> implements Graph<E> {
 
     @Override
     public void addEdge(Node<E> start, Node<E> end, int cost) {
-        this.edges.add(new Edge<>(start,end,cost));
+        try {
+            this.edges.add(new Edge<>(start, end, cost));
+        }catch(Exception exc1){
+            throw exc1;
+        }
     }
 
     @Override
@@ -38,8 +44,12 @@ public class AdjacencyListGraph<E> implements Graph<E> {
 
     @Override
     public void addTwoWayEdge(Node<E> start, Node<E> end, int cost) {
-        addEdge(start,end,cost);
-        addEdge(end,start,cost);
+        try {
+            addEdge(start, end, cost);
+            addEdge(end, start, cost);
+        }catch(Exception exc1){
+            throw exc1;
+        }
     }
 
     @Override
@@ -67,21 +77,25 @@ public class AdjacencyListGraph<E> implements Graph<E> {
                 }
             }
             return false;
-        } catch{
-
+        } catch(Exception exc1){
+            throw exc1;
         }
     }
 
     @Override
     public Edge<E> getEdge(Node<E> start, Node<E> end) {
-        for(Edge currEdge: getEdges()){
-            if(end==currEdge.getEnd()){
-                if(start==currEdge.getStart()){
-                    return currEdge;
+        try {
+            for (Edge currEdge : getEdges()) {
+                if (end == currEdge.getEnd()) {
+                    if (start == currEdge.getStart()) {
+                        return currEdge;
+                    }
                 }
             }
+            return null;
+        }catch(Exception exc1){
+            throw exc1;
         }
-        return null;
     }
 
     private void checkNodesExists(Node<E> node1, Node<E> node2) {
