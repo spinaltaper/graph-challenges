@@ -210,6 +210,30 @@ public class AdjacencyListGraphTest {
     }
 
     @Test
+    public void traversal(){
+        List<Node> checkList = new LinkedList;
+        // I-5 north to south
+        checkList.add(bellingham);
+        checkList.add(seattle);
+        checkList.add(tacoma);
+        checkList.add(olympia);
+        checkList.add(vancouver);
+
+        // I-90 west to east
+        checkList.add(ellensberg);
+
+        // north east of ellensberg
+        checkList.add(spokane);
+
+        // south east of ellensberg
+        checkList.add(yakima);
+        checkList.add(richland);
+        checkList.add(wallaWalla);
+
+        assertEquals(washington.preOrderTraversal(),checkList)
+    }
+
+    @Test
     public void traverseTest() {
         List<Node<String>> traversal = breadthFirstTraversal(washington, ellensberg );
 
