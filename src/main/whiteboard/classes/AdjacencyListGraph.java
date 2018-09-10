@@ -98,19 +98,19 @@ public class AdjacencyListGraph<E> implements Graph<E> {
         }
     }
 
-    public List<Node> preorderTraversal(){
+    public List<Node> DepthFirst(){
         LinkedList returnVal = new LinkedList<Node>();
         LinkedList<Node> seen = new LinkedList<Node>();
         Set<Node<E>> nodes = this.getNodes();
-        return(_preorderTraversal(nodes.iterator().next(),seen,returnVal));
+        return(_DepthFirst(nodes.iterator().next(),seen,returnVal));
 
     }
-    public List<Node> _preorderTraversal(Node input, LinkedList<Node> seen, LinkedList<Node> returnVal){
+    public List<Node> _DepthFirst(Node input, LinkedList<Node> seen, LinkedList<Node> returnVal){
         seen.add(input);
         Set<Node> Set = this.getNeighbors(input);
         for(Node curr : Set){
             if(!seen.contains(curr)){
-                _preorderTraversal(curr,seen, returnVal);
+                _DepthFirst(curr,seen, returnVal);
             }
         }
         returnVal.add(input);

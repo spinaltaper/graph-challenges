@@ -230,7 +230,7 @@ public class AdjacencyListGraphTest {
         checkList.add(richland);
         checkList.add(wallaWalla);
 
-        assertEquals(washington.preOrderTraversal(),checkList)
+        assertEquals(washington.DepthFirst(),checkList)
     }
 
     @Test
