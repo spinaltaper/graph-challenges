@@ -1,8 +1,8 @@
-# Depth First Traversal
-depth first traversal of a graph
+# Find Edge
+Find if an edge exists in a graph.
 
 ## Challenge
-create a function which can navigate through a graph and traverse it depth first
+Take in an array of strings and see if you can navigate through the graph from the first all the way to the last. returning the cost if you can.
 
 ## Solution
 ![](assets/get-edge.jpg)
