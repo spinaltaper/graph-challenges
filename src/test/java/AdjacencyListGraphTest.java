@@ -1,6 +1,11 @@
-import org.junit.Before;
-import org.junit.Test;
+package java;
 
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 import whiteboard.classes.Edge;
 import whiteboard.classes.Graph;
 import whiteboard.classes.Node;
@@ -8,7 +13,6 @@ import whiteboard.classes.AdjacencyListGraph;
 
 import java.util.*;
 
-import static org.junit.Assert.*;
 
 public class AdjacencyListGraphTest {
     /* Washington State:
@@ -27,7 +31,7 @@ public class AdjacencyListGraphTest {
     vancouver                       walla walla
      */
 
-    private Graph<String> washington;
+    private AdjacencyListGraph<String> washington;
     private Node<String> bellingham;
     private Node<String> seattle;
     private Node<String> tacoma;
@@ -211,7 +215,7 @@ public class AdjacencyListGraphTest {
 
     @Test
     public void traversal(){
-        List<Node> checkList = new LinkedList;
+        List<Node> checkList = new LinkedList();
         // I-5 north to south
         checkList.add(bellingham);
         checkList.add(seattle);
@@ -230,7 +234,7 @@ public class AdjacencyListGraphTest {
         checkList.add(richland);
         checkList.add(wallaWalla);
 
-        assertEquals(washington.DepthFirst(),checkList)
+        assertEquals(washington.DepthFirst(),checkList);
     }
 
     @Test
